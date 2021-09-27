@@ -5,7 +5,6 @@ using namespace std;
 
 void GetRange(int& lower, int& upper);
 void CalcNarcNums(int lower, int upper);
-void GetDigitArray(int num);
 
 int main(){
     int upperLimit = 0;
@@ -18,7 +17,7 @@ int main(){
     
     cout << "Searching " << lowerLimit << " to " << upperLimit << "..." << endl;
 
-    CalcNarcNums();
+    CalcNarcNums(lowerLimit, upperLimit);
 
     return 0;
 }
@@ -36,21 +35,16 @@ void GetRange(int& lower, int& upper){
 
 void CalcNarcNums(int lower, int upper){
     for(int i=lower; i<upper; i++){
-        int digits[] = GetDigitArray(i);
+        int num = i;
         int sum = 0;
-        for(int j=0; j<digits.size(); j++){
-            sum += pow(digits[j], digits.size());
+        string numString = to_string(num);
+        while(num > 0){
+            sum += pow(num % 10, numString.length());
+            num /= 10;
         }
+
         if(i == sum){
             cout << i << endl;
         }
-    }
-}
-
-int[] GetDigitArray(int num){
-    int[] digits = new int[static_cast<string>(num).length()];
-    for(int i=digits.size(); i>=0; i--){
-        digits[i] = num % 10;
-        num /= 10;
     }
 }
