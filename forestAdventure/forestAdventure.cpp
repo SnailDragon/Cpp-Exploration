@@ -17,6 +17,10 @@ void NoFlashlightSneak();
 void ContinueAsYouAre();
 
 void GoNorth();
+void ContinueTrail();
+void FloatDownRiver();
+void ClimbChain();
+void HikeSwitchbacks();
 
 
 int main(){
@@ -61,9 +65,60 @@ void GoStartingPlace(){
 
 }
 
+// north branch
+
 void GoNorth(){
-    cout << "Unfinished" << endl;
+    string inputValue = "";
+    string message = "You walk north. After a bit you come to a bridge over a fairly large, lazy river. There is a small amount of wooden debris by the bridge including a very intact looking barre. Looking ahead you can see the trail following the river until it disappears behind a bend. Do you a) continue hiking along the trail or b) float down the river in the barrel or c) go back";
+    string options = "abc";
+    inputValue = PromptAction(message, options);
+    if(inputValue == "a"){
+        ContinueTrail();
+    }
+    else if(inputValue == "b") {
+        FloatDownRiver();
+    }
+    else {
+        GoStartingPlace();
+    }
 }
+
+void ContinueTrail(){
+    string inputValue = "";
+    string message = "You continue hiking and after following the lazy river for a brief stretch you see it speed up and tumble into a large waterfall. Next to the waterfall there are two ways down the cliffs, a rusty chain drilled into a large boulder and a series of very shallow switchbacks cut into the side of the cliffs. Do you a) climb down the chain or b) hike down the switchbacks or c) go back";
+    string options = "abc";
+    inputValue = PromptAction(message, options);
+    if(inputValue == "a"){
+        ClimbChain();
+    }
+    else if(inputValue == "b") {
+        HikeSwitchbacks();
+    }
+    else {
+        GoNorth();
+    }
+}
+
+void ClimbChain(){
+    cout << endl;
+    cout << "You pull on chain, it feels sturdy enough, and begin to climb down the cliff. You have a few close calls but the chain holds and you make it down the cliff. In the distance you can see a small town as the river open up into a lake. Finally, people." << endl;
+    cout << "THE END" << endl;
+}
+
+void HikeSwitchbacks(){
+    cout << endl;
+    cout << "Not trusting the chain you begin to inch your way down the tiny switchbacks. Halfway down the cliff you hear a cracking sound under your feet and the trail beneath you gives way, sending you tumbling down the rocky cliff to your death." << endl;
+    cout << "THE END" << endl;
+}
+
+void FloatDownRiver(){
+    cout << endl;
+    cout << "Grabbing the barrel and hopping inside you begin to float down the river. After a stretch of lazy river, the current starts to increase rapidly. Panicked you try to swim to side but it is too late, and a waterfall sweeps you over the edge. As you fall you can see a lake town in the distance, but that doesn't matter now." << endl;
+    cout << "THE END" << endl;
+}
+
+
+// south branch
 
 void GoSouth(){
     string inputValue = "";
