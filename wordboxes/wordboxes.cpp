@@ -4,8 +4,8 @@
 
 using namespace std;
 
-bool IsWordBox(string top, string middle, string bottom, vector<string> wb);
-bool NotWord(string word, vector<string> wb);
+bool IsWordBox(vector<string> box, vector<string> wb);
+bool IsWord(string word, vector<string> wb);
 
 int main(){
 
@@ -19,50 +19,44 @@ int main(){
     string line = "";
     do {
         getline(wordBank, line);
-        words.push_back(line);
-    } while (line != "");
-    int it = 0;
-    for(int i = 0; i < sizeof(words); i++){
-        for(int j = 0; j < sizeof(words); j++){
-            for(int x = 0; x < sizeof(words); x++){
-                if(IsWordBox(words[i], words[j], words[x], words)){
-                    cout << words[i] << endl;
-                    cout << words[j] << endl;
-                    cout << words[x] << endl;
-                }
-                else{
-                    cout << it++ << endl;
-                }
-            }
-        }
-    }
+        words.push_back(line);        
+    } while (line != "asp");
+    
+    vector<string> testBox3;
+    testBox3.push_back("ave");
+    testBox3.push_back("sin");
+    testBox3.push_back("pad");
+
+    cout << words.size() << endl;
+    cout << words[25] << endl;
+    cout << IsWordBox(testBox3, words) << endl;
+    
 
 
 
     return 0;
 }
 
-
-bool IsWordBox(string top, string middle, string bottom, vector<string> wb){
-
-    for(int i = 0; i < 3; i++){
-        string str = "";
-        str += top.at(i) + middle.at(i) + bottom.at(i);
-        if(NotWord(str, wb)){
+bool IsWordBox(vector<string> box, vector<string> wb){
+    string wordToTest = "";
+    for(int i = 0; i < box[0].length(); i++){
+        wordToTest = "";
+        for(int j = 0; j < box[0].length(); j++){
+            wordToTest += box[j].at(i);
+        }
+        if(! IsWord(wordToTest, wb)){
             return false;
         }
+        
     }
-
     return true;
 }
 
-bool NotWord(string word, vector<string> wb){
-
-    for(int i = 0; i < sizeof(wb); i++){
+bool IsWord(string word, vector<string> wb){
+    for(int i = 0; i < wb.size(); i++){
         if(word == wb[i]){
-            return false;
+            return true;
         }
     }
-
-    return true;
+    return false;
 }
