@@ -6,10 +6,12 @@ using namespace std;
 
 bool IsWordBox(vector<string> box, vector<string> wb);
 bool IsWord(string word, vector<string> wb);
+void PrintBox(vector<string> box);
+void SaveBox(vector<string> box);
 
 int main(){
 
-    int size = 3;
+    int size = 4;
     ifstream wordBank;
     string filename = "words" + to_string(size) + ".txt";
     wordBank.open(filename, fstream::in);
@@ -19,22 +21,56 @@ int main(){
     string line = "";
     do {
         getline(wordBank, line);
-        words.push_back(line);        
-    } while (line != "asp");
+        words.push_back(line);       
+    } while (line != "");
+    words.pop_back();
     
-    vector<string> testBox3;
-    testBox3.push_back("ave");
-    testBox3.push_back("sin");
-    testBox3.push_back("pad");
-
-    cout << words.size() << endl;
-    cout << words[25] << endl;
-    cout << IsWordBox(testBox3, words) << endl;
+    int it = 0;
+    for(int i = 0; i < words.size(); ++i){
+        for(int j = 0; j < words.size(); ++j){
+            for(int z = 0; z < words.size(); ++z){
+                for(int x = 0; x < words.size(); ++x){
+                    cout << "Processing box #" << it << endl;
+                    it++;
+                    vector<string> testBox3;
+                    testBox3.push_back(words[i]);
+                    testBox3.push_back(words[j]);
+                    testBox3.push_back(words[z]);
+                    testBox3.push_back(words[x]);
+                    if(IsWordBox(testBox3, words)){
+                        PrintBox(testBox3);
+                        SaveBox(testBox3);
+                    }
+                    else{
+                        PrintBox(testBox3);
+                        cout << i << "." << j << "." << z << "." << x << endl; 
+                    }
+                }
+            }
+        }
+        cout << "Done i = " << i << endl;
+    }
     
 
 
 
     return 0;
+}
+
+void SaveBox(vector<string> box){
+    ofstream boxes;
+    boxes.open("fourboxes.txt");
+    for(int i = 0; i < box.size(); ++i){
+        boxes << box[i] << endl;
+    }
+    boxes << endl << endl;
+}
+
+void PrintBox(vector<string> box){
+    for(int i = 0; i < box.size(); ++i){
+        cout << box[i] << endl;
+    }
+    cout << endl;
 }
 
 bool IsWordBox(vector<string> box, vector<string> wb){
