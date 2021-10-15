@@ -24,11 +24,18 @@ int main(){
         words.push_back(line);       
     } while (line != "");
     words.pop_back();
-    
+    // 0.20.1350.1560
+    int jStart = 20;
+    int zStart = 1350;
+    bool unStarted = true;
+
     int it = 0;
     for(int i = 0; i < words.size(); ++i){
         for(int j = 0; j < words.size(); ++j){
+            if(unStarted) j = jStart;
             for(int z = 0; z < words.size(); ++z){
+                if(unStarted) z = zStart;
+                unStarted = false;
                 for(int x = 0; x < words.size(); ++x){
                     cout << "Processing box #" << it << endl;
                     it++;
