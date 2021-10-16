@@ -24,9 +24,9 @@ int main(){
         words.push_back(line);       
     } while (line != "");
     words.pop_back();
-    // 0.20.1350.1560
-    int jStart = 20;
-    int zStart = 1350;
+    
+    int jStart = 26;
+    int zStart = 504;
     bool unStarted = true;
 
     int it = 0;
