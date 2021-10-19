@@ -120,7 +120,7 @@ bool IsWord(string word){
     string line;
     do {
         getline(wordbank, line);
-        if(line == word){
+        if(line.compare(word) == 0){
             return true;
         }
     } while(line != "");
