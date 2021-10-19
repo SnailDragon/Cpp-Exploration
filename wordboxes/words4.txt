@@ -120,7 +120,7 @@ game
 grow
 walk
 less
-TRUE
+true
 face
 cost
 kill
@@ -493,7 +493,7 @@ zero
 four
 five
 nine
-July
+july
 jazz
 clip
 flip
@@ -1638,5 +1638,3 @@ josh
 peal
 raja
 ruth
-
-

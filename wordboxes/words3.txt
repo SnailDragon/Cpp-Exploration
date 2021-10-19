@@ -530,7 +530,3 @@ ret
 avo
 phi
 fen
-ave
-asp
-
-STOP

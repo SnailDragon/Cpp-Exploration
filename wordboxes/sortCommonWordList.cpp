@@ -4,6 +4,8 @@
 
 using namespace std;
 
+string ToLowerCase(string str);
+
 int main(){
     ifstream commonwords;
     ofstream wordLists[9];
@@ -19,10 +21,18 @@ int main(){
         if(line.length() >= 9){
             continue;
         }
-        wordLists[line.length()] << line << endl;
+        wordLists[line.length()] << ToLowerCase(line) << endl;
         cout << line << " ";
     } while (line != "");
 
     commonwords.close();
     return 0;
+}
+
+
+string ToLowerCase(string str){
+    for(int i = 0; i < str.length(); i++){
+        str.at(i) = tolower(str.at(i));
+    }
+    return str;
 }

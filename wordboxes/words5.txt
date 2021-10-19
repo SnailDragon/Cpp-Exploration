@@ -369,7 +369,7 @@ pitch
 anger
 exact
 solid
-FALSE
+false
 prize
 fence
 swear

@@ -473,8 +473,8 @@ twelve
 eighty
 ninety
 eleven
-August
-Monday
+august
+monday
 impact
 aspect
 client

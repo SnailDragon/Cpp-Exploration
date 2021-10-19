@@ -406,7 +406,7 @@ billion
 fifteen
 seventy
 sixteen
-January
+january
 publish
 missile
 suicide
@@ -1955,7 +1955,7 @@ ambient
 keyhole
 acetate
 kneecap
-2 - SUP
+2 - sup
 hangout
 fissile
 mascara
