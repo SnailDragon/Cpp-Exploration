@@ -10,3 +10,4 @@ Forest Adventure - a small text adventure: https://en.wikipedia.org/wiki/Interac
 
 Word Boxes - a program to generate boxes of letters that form word horizontally and vertically. Have tweaked program for 3x3 and 4x4 but 4x4 takes forever. 
 * Word Boxes Alpha - sorts words into files based on the first letter - increases word checking speed 
+* Word Boxes Matrix 4 - only 4 letter words - sorts words into a 4D matrix where if it is a word, its characters (-'a') are the coordinates to a 'true' in the matrix
