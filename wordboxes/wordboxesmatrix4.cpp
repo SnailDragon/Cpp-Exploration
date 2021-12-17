@@ -8,7 +8,11 @@ using namespace std;
 void PrintBox(vector<string> box);
 void SaveBox(vector<string> box);
 
+ofstream boxes;
+
 int main(){
+    
+    boxes.open("fourboxes.txt");
 
     int size = 4;
     ifstream wordBank;
@@ -65,11 +69,12 @@ int main(){
                         testBox3.push_back(words[x]);
                         // PrintBox(testBox3);
                         SaveBox(testBox3);
+                        PrintBox(testBox3);
                     }
-                    else{
-                        // PrintBox(testBox3);
-                        cout << i << "." << j << "." << z << "." << x << endl; 
-                    }
+                    // else{
+                    //     // PrintBox(testBox3);
+                    //     cout << i << "." << j << "." << z << "." << x << endl; 
+                    // }
                 }
             }
         }
@@ -80,8 +85,7 @@ int main(){
 }
 
 void SaveBox(vector<string> box){
-    ofstream boxes;
-    boxes.open("fourboxes.txt");
+
     for(int i = 0; i < box.size(); ++i){
         boxes << box[i] << endl;
     }
