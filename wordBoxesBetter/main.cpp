@@ -15,11 +15,12 @@ int hasher(string const& str);
 int main(int argc, char* argv[]){
 
     BoxGen box("words.txt");
-
-    stringstream ss;
-    int num;
-    ss << argv[1];
-    ss >> num;
+    int num = 3;
+    if(argc == 2){
+        stringstream ss;
+        ss << argv[1];
+        ss >> num;
+    }
 
     
 

@@ -83,7 +83,7 @@ class BoxGen {
                     if(indexes.at(i) > masterlist[len].size()-1){
                         indexes.at(i-1)++;
                         if(i == 1){
-                            cout << "#";
+                            cout << indexes.at(0) << " ";
                         }
                         indexes.at(i) = 0;
                     }
