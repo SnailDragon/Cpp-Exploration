@@ -136,12 +136,4 @@ class BoxGen {
         
 };
 
-// for(unsigned int i = 0; i < words.size(); i++){
-//                 vector<char> chars;
-//                 for(unsigned int j = 0; j < words.at(i).length(); j++){
-//                     chars.push_back(words.at(i)[j]);
-//                 }
-//                 wordbox.push_back(chars);
-//             }
-
 #endif

@@ -2,9 +2,10 @@
 
 #include <vector>
 #include <string>
-#include <unordered_set>
 #include <iostream>
-#include <fstream>
+#include <chrono>
+#include <iomanip>
+
 
 #include "BoxGen.h"
 
@@ -14,7 +15,11 @@ int hasher(string const& str);
 
 int main(int argc, char* argv[]){
 
+    auto start = std::chrono::high_resolution_clock::now();
     BoxGen box("words.txt");
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto tsetup = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+
     int num = 3;
     if(argc == 2){
         stringstream ss;
@@ -25,8 +30,10 @@ int main(int argc, char* argv[]){
     
 
     //cout << box.section_to_string(3) << endl;
-
+    auto start2 = std::chrono::high_resolution_clock::now();
     vector<vector<string>> boxes = box.genWordBoxes(num);
+    auto stop2 = std::chrono::high_resolution_clock::now();
+    auto trun = std::chrono::duration_cast<std::chrono::microseconds>(stop2 - start2);
     
     if(argc == 3){
         ofstream file;
@@ -45,6 +52,13 @@ int main(int argc, char* argv[]){
         cout << box.box_to_string(b) << endl;
     }
 
+    cout << fixed << setprecision(2) << "Setup Time: " << tsetup.count()/1000.0 << " us" << endl;
+    if(trun.count() < 1000 * 10000){
+        cout << fixed << setprecision(2) <<  "Execution Time: " << trun.count()/1000.0 << " us" << endl;
+    }
+    else {
+        cout << fixed << setprecision(2) << "Execution Time: " << trun.count()/1000000/60/60 << " hrs" << endl;
+    }
     return 0;
 }
 
