@@ -48,17 +48,21 @@ int main(int argc, char* argv[]){
         }
     }
 
+    auto start3 = std::chrono::high_resolution_clock::now();
     for(auto b : boxes){
         cout << box.box_to_string(b) << endl;
     }
+    auto stop3 = std::chrono::high_resolution_clock::now();
+    auto tprint = std::chrono::duration_cast<std::chrono::microseconds>(stop3 - start3);
 
-    cout << fixed << setprecision(2) << "Setup Time: " << tsetup.count()/1000.0 << " us" << endl;
+    cout << fixed << setprecision(2) << "Setup Time: " << tsetup.count() << " us" << endl;
     if(trun.count() < 1000 * 10000){
-        cout << fixed << setprecision(2) <<  "Execution Time: " << trun.count()/1000.0 << " us" << endl;
+        cout << fixed << setprecision(2) <<  "Execution Time: " << trun.count()/1000.0 << " ms" << endl;
     }
     else {
-        cout << fixed << setprecision(2) << "Execution Time: " << trun.count()/1000000/60/60 << " hrs" << endl;
+        cout << fixed << setprecision(2) << "Execution Time: " << trun.count()/1000000.0/60.0/60.0 << " hrs" << endl;
     }
+    cout << fixed << setprecision(2) << "Print Time: " << tprint.count() << " us" << endl;
     return 0;
 }
 
