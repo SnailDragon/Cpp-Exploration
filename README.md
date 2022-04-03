@@ -8,7 +8,7 @@ A terminal program for [caesar cipher](https://en.wikipedia.org/wiki/Caesar_ciph
 ### Forest Adventure
 A small [text adventure](https://en.wikipedia.org/wiki/Interactive_fiction). Forest Adventure 2 is just Forest Adventure but adds a few more features.
 
-### Narcissistic Numbers project
+### [Narcissistic Numbers project](/narcissiscticNumbers/)
 Generates all [narcissistic numbers]( https://en.wikipedia.org/wiki/Narcissistic_number) in a specified range.
 
 ### [Word Boxes](./wordBoxes/)
