@@ -2,10 +2,10 @@
 A collection of various projects in C++ 
 
 ## Projects: 
-### Caesar Cipher Encoder/Decoder
+### [Caesar Cipher Encoder/Decoder](/caesarCipher/)
 A terminal program for [caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher) encoding and decoding (with and without shift).
 
-### Forest Adventure
+### [Forest Adventure](/forestAdventure/)
 A small [text adventure](https://en.wikipedia.org/wiki/Interactive_fiction). Forest Adventure 2 is just Forest Adventure but adds a few more features.
 
 ### [Narcissistic Numbers project](/narcissiscticNumbers/)
